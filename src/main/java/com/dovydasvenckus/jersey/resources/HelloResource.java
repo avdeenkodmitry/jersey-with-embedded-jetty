@@ -1,7 +1,5 @@
 package com.dovydasvenckus.jersey.resources;
 
-import com.dovydasvenckus.jersey.greeting.Greeting;
-
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
@@ -9,15 +7,10 @@ import javax.ws.rs.core.MediaType;
 public class HelloResource {
 
     @GET
-    @Path("/{param}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Greeting hello(@PathParam("param") String name) {
-        return new Greeting(name);
+    @Path("world")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String ping() {
+        return "Hello, world";
     }
 
-    @POST
-    @Produces(MediaType.TEXT_PLAIN)
-    public String helloUsingJson(Greeting greeting) {
-        return greeting.getMessage() + "\n";
-    }
 }
